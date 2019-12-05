@@ -16,7 +16,7 @@ def edit_sq(request,Unique_Squirrel_ID):
     context = {
             'form': form,
             }
-    return render(request,f'sightings/{Unique_Squirrel_ID}',context)
+    return render(request,f'sightings/edit.html',context)
 
 def all_sq(request):
     sqs = Sq.objects.all()
