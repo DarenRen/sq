@@ -1,0 +1,5 @@
+<ul>
+  {% for sq in sqs %}
+  <li><a href="{% url 'edit' Unique_Squirrel_ID %}">{{ sq.Unique_Squirrel_ID }}</li></a>
+  {% endfor %}
+</ul>
