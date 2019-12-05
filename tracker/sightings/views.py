@@ -38,3 +38,6 @@ def add_sq(request):
             'form': form,
             }
     return render(request, 'sightings/edit.html',context)
+
+def stats(request):
+
