@@ -68,7 +68,7 @@ class Sq(models.Model):
     ABOVE_GROUND = 'above ground'
     OTHER = ''
     LOCATION_CHOICES = (
-        (ADULT, '"Ground Plane'),
+        (ADULT, 'Ground Plane'),
         (JUVENILE, 'Above Ground'),
         (OTHER, ''),
     )

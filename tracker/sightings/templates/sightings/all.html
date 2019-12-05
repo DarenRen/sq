@@ -1,5 +1,9 @@
-<ul>
-  {% for sq in sqs %}
-  <li><a href="{% url 'edit' Unique_Squirrel_ID %}">{{ sq.Unique_Squirrel_ID }}</li></a>
-  {% endfor %}
-</ul>
+{% if sqs %}
+  <ul>
+    {% for sq in sqs %}
+      <li>{{ sq_Unique_Squirrel_ID }}</li>
+    {% endfor %}
+  </ul>
+{% else %}
+  <p>No squirrels are available.</p>
+{% endif %}
