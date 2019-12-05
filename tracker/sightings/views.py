@@ -29,7 +29,7 @@ def edit_sq(request,Unique_Squirrel_ID):
 def add_sq(request):
     if request.method == 'POST':
         form = SqForm(request.POST)
-        if form.is_valis():
+        if form.is_valid():
             form.save()
             return redirect('/sightings')
     else:

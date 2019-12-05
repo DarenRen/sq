@@ -1,5 +1,6 @@
 <ul>
+  <p><a href="/sightings/add/">Add.</a></p>
   {% for sq in sqs %}
-  <li>{{ sq.Unique_Squirrel_ID }}</li>
+    <li><a href="/sightings/{{ sq.id }}/">{{ sq.Unique_Squirrel_ID }}</a></li>
   {% endfor %}
 </ul>
