@@ -1,9 +1,5 @@
-{% if sqs %}
-  <ul>
-    {% for sq in sqs %}
-      <li>{{ sq.Unique_Squirrel_ID }}</li>
-    {% endfor %}
-  </ul>
-{% else %}
-  <p>No squirrels are available.</p>
-{% endif %}
+<ul>
+  {% for sq in sqs %}
+  <li>{{ sq.Unique_Squirrel_ID }}</li>
+  {% endfor %}
+</ul>
