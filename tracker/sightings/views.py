@@ -25,3 +25,16 @@ def edit_sq(request,Unique_Squirrel_ID):
             }
     return render(request,f'sightings/edit.html',context)
 
+
+def add_sq(request):
+    if request.method == 'POST':
+        form = SqForm(request.POST)
+        if form.is_valis():
+            form.save()
+            return redirect('/sightings')
+    else:
+        form =SqForm()
+    context={
+            'form': form,
+            }
+    return render(request, 'sightings/edit.html',context)
