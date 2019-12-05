@@ -139,3 +139,6 @@ class Sq(models.Model):
     Runs_From = models.BooleanField(
         default = True,
     )
+
+    def __str__(self):
+        return self.Unique_Squirrel_ID

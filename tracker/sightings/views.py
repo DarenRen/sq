@@ -1,5 +1,5 @@
-from django.shortcuts import render
 from django.http import HttpResponse
+from django.shortcuts import render
 from .models import Sq
 from .forms import SqForm 
 from django.shortcuts import redirect
@@ -18,5 +18,10 @@ def edit_sq(request,Unique_Squirrel_ID):
             }
     return render(request,f'sightings/{Unique_Squirrel_ID}',context)
 
+def all_sq(request):
+    sqs = Sq.objects.all()
+    context = {
+        'Squirrels': sqs,
+    }
+    return render(request, 'sightings/all.html', context)
 
-# Create your views here.
