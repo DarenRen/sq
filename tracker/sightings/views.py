@@ -7,7 +7,7 @@ from django.shortcuts import redirect
 def all_sq(request):
     sqs = Sq.objects.all()
     context = {
-        'Squirrels': sqs,
+        'sqs': sqs,
     }
     return render(request, 'sightings/all.html', context)
 
