@@ -30,7 +30,8 @@ class Sq(models.Model):
         default = OTHER,
     )
     
-    Date = models.DateField(
+    Date = models.CharField(
+        max_length = 8,
         help_text =_('month, day, and year (MMDDYYYY)'),
     )
     
