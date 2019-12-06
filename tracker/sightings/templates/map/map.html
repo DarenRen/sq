@@ -50,7 +50,7 @@
         <!-- L.Icon.Default.prototype.options.shadowSize = 15; -->
         <!-- L.Icon.Default.prototype.options.shadowAnchor = [0, 0]; -->
         {% for sq in sqs %}
-          var point_lat_lon = [{{ sq.Longitude }}, {{ sq.Latitude }}];
+          var point_lat_lon = [{{ sq.Latitude }}, {{ sq.Longitude }}];
           var marker = L.marker(point_lat_lon).addTo(map);
         {% endfor %}
     </script>
