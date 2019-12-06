@@ -44,20 +44,12 @@ def add_sq(request):
 def stats(request):
     sqs = Sq.objects.all()
     attributes = ['Age','Primary_Fur_Color','Running','Chasing','Climbing','Eating','Foraging','Kuks','Quaas']
-    values = {x:{} for x in attributes}
-#    for key in  values.keys():
-#        for val_pari in sqs.values(key).distinct():
-#            val = val_pari[key]
-#            criteria = {key:val}
-#            values[key][val] = sqs.filter(**criteria).count()
-#    
- #   return render(request, 'sightings/stats.html', context)
+    values={i:{} for i in attributes}
     for item in values.keys():
-        for query in Sq.objects.values(item).annotate(count=Count(item)):
-            values[item][query[item]]=query[count]
-#    values['Age'][a.Age]=a.count
+        for each in Sq.objects.values(item).annotate(count=Count(item)):
+            values[item][each[item]] = each['count']
     context ={
-            'values':values
+        'values':values
             }
     return render(request,'sightings/stats.html',context)
 

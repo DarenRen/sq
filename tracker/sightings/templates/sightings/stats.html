@@ -10,20 +10,25 @@ table, th, td {
 <body>
 
 <table>
-	<tr>
-		<th>Attribute</th>
-		<th>Value</th>
-		<th>Count</th>
-	</tr>
+	<thead>
+		<tr>
+			<th>Attribute</th>
+			<th>Value</th>
+			<th>Count</th>
+		</tr>
+	</thead>
 
-	
-	{% for field,data in values.items %}
-		{% for val, num in data.items %}
-	<tr>
-			<td>{{field}}</td>
+	<tbody>
+		{% for attr, dict in values.items %}
+			{% for val, num in dict.items %}
+		<tr>
+			<td>{{attr}}</td>
 			<td>{{val}}</td>
 			<td>{{num}}</td>
-	</tr>
+			{% endfor %}
+		{% endfor %}
+		</tr>
+	</tbody>
 
 </table>
 </body>
