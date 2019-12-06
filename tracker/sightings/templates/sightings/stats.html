@@ -1,5 +1,4 @@
-<<<<<<< HEAD
-<! DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
 <style>
@@ -16,6 +15,16 @@ table, th, td {
 		<th>Value</th>
 		<th>Count</th>
 	</tr>
+
+	
+	{% for field,data in values.items %}
+		{% for val, num in data.items %}
 	<tr>
-		
-		<td>
+			<td>{{field}}</td>
+			<td>{{val}}</td>
+			<td>{{num}}</td>
+	</tr>
+
+</table>
+</body>
+</html>
