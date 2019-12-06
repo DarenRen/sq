@@ -24,7 +24,7 @@ def edit_sq(request,Unique_Squirrel_ID):
         form = SqForm(instance = sq)
     context = {
             'form': form,
-            }
+    }
     return render(request,f'sightings/edit.html',context)
 
 
@@ -38,7 +38,7 @@ def add_sq(request):
         form =SqForm()
     context={
             'form': form,
-            }
+    }
     return render(request, 'sightings/edit.html',context)
 
 def stats(request):
@@ -50,11 +50,5 @@ def stats(request):
             values[item][each[item]] = each['count']
     context ={
         'values':values
-            }
-    return render(request,'sightings/stats.html',context)
-
-
-        
-
-        
-    
+    }
+    return render(request,'sightings/stats.html',context) 
