@@ -87,23 +87,23 @@ class Sq(models.Model):
     )
 
     Running = models.BooleanField(
-        default = True
+        default = False,
     )
 
     Chasing = models.BooleanField(
-        default = True
+        default = False,
     )
 
     Climbing  = models.BooleanField(
-        default = True,
+        default = False,
     )
 
     Eating = models.BooleanField(
-        default = True,
+        default = False,
     )
 
     Foraging = models.BooleanField(
-        default = True,
+        default = False,
     )
 
     Other_Activities = models.CharField(
@@ -112,35 +112,35 @@ class Sq(models.Model):
     )
 
     Kuks = models.BooleanField(
-        default = True,
+        default = False,
     )
 
     Quaas  = models.BooleanField(
-        default = True,
+        default = False,
     )
 
     Moans = models.BooleanField(
-        default = True,
+        default = False,
     )
 
     Tail_Flags = models.BooleanField(
-        default = True,
+        default = False,
     )
 
     Tail_Twitches = models.BooleanField(
-        default = True,
+        default = False,
     )
 
     Approaches = models.BooleanField(
-        default = True,
+        default = False,
     )
 
     Indifferent = models.BooleanField(
-        default = True,
+        default = False,
     )
 
     Runs_From = models.BooleanField(
-        default = True,
+        default = False,
     )
 
     def __str__(self):
