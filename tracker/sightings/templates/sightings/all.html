@@ -1,6 +1,22 @@
-<ul>
-  <p><a href="/sightings/add/">Add.</a></p>
-  {% for sq in sqs %}
-    <li><a href="/sightings/{{ sq.Unique_Squirrel_ID }}/">{{ sq.Unique_Squirrel_ID }}</a></li>
-  {% endfor %}
-</ul>
+<!DOCTYPE html>
+<html>
+  <body>
+    <div class="row">
+      <div class="col-sm-3">
+	<a class="btn btn-outline-primary btn-lg"  href="/sightings/add" role="button"><h4>Add a New Sighting</h4></a>
+      </div>
+      <div class="col-sm-3">
+	      <a class="btn btn-outline-primary btn-lg" href="/sightings/stats" role="button"><h4>Statistics of all the Sightings</h4></a>
+      </div>
+      <div class="col-sm-3"></div>
+      <div class="col-sm-3">
+        <h4>Unique Squirrel ID of all the Sightings</h4>
+      </div>
+      {% for sq in sqs %}
+      <div class="col-sm-3">
+        <a href="/sightings/{{sq.Unique_Squirrel_ID}}" class="btn btn-outline-primary btn-lg">{{sq.Unique_Squirrel_ID}}</a>
+      </div>
+      {% endfor %}
+    </div>
+  </body>
+</html>

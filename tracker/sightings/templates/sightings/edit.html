@@ -1,12 +1,18 @@
 <!doctype>
 <html>
   <body>
-    <form method = "post">
-      {% csrf_token %}
-
-      {{form.as_p}}
-      <br>
-        <input type = "submit" name = "Submit">
-    </form>
+    <div class="text-center container p-3 my-3 bg-primary text-white" ><h4>Sighting Details</h4> </div>
+    <div class="row">
+      <div class="col-sm-4"></div>
+      <div class="col-sm-4">
+        <form method = "post">
+          {% csrf_token %}
+          {{form.as_p}}
+          <br>
+          <input type = "submit" name = "Submit">
+        </form>
+      </div>
+      <div class="col-sm-4"></div>
+    </div>
   </body>
 </html>
