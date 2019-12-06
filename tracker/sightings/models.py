@@ -3,12 +3,14 @@ from django.utils.translation import gettext as _
 
 class Sq(models.Model):
     
-    X = models.FloatField(
+    Longitude = models.FloatField(
+        default = None,
         help_text = _('longitude coordinate'),
     )
     
-    Y = models.FloatField(
-        help_text = _('longtitude coordinate'),
+    Latitude = models.FloatField(
+        default = None,
+        help_text = _('latitude coordinate'),
     )
     
     Unique_Squirrel_ID = models.CharField(

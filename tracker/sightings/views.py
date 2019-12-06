@@ -12,7 +12,7 @@ def all_sq(request):
     return render(request, 'sightings/all.html', context)
 
 def edit_sq(request,Unique_Squirrel_ID):
-    sq = Sq.objects.get(id = Unique_Squirrel_ID)
+    sq = Sq.objects.get(Unique_Squirrel_ID = Unique_Squirrel_ID)
     if request.method == 'POST':
         form = SqForm(request.POST, instance = sq)
         if form.is_valid():
