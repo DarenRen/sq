@@ -3,7 +3,8 @@ from django.shortcuts import render
 from .models import Sq
 from .forms import SqForm 
 from django.shortcuts import redirect
-from django_pandas.io import read_frame
+from django.db.models import Count
+
 
 def all_sq(request):
     sqs = Sq.objects.all()
@@ -41,10 +42,19 @@ def add_sq(request):
     return render(request, 'sightings/edit.html',context)
 
 def stats(request):
-    # df = read_frame(Sq.objects.all())
-    # return HttpResponse(df.describe().to_html())
     sqs = Sq.objects.all()
-    context = {
-        'sqs': sqs,
-    }
-    return render(request, 'sightings/stats.html', context)
+    attributes = ['Age','Primary_Fur_Color','Running','Chasing','Climbing','Eating','Foraging','Kuks','Quaas']
+    values={i:{} for i in attributes}
+    for item in values.keys():
+        for each in Sq.objects.values(item).annotate(count=Count(item)):
+            values[item][each[item]] = each['count']
+    context ={
+        'values':values
+            }
+    return render(request,'sightings/stats.html',context)
+
+
+        
+
+        
+    

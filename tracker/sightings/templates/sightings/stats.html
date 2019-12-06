@@ -1,5 +1,35 @@
-<ul>
-  {% for sq in sqs %}
-    <p>{{ sq.Running }}</p>
-  {% endfor %}
-</ul>
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+table, th, td {
+	border; 1px solid black;
+}
+</style>
+</head>
+<body>
+
+<table>
+	<thead>
+		<tr>
+			<th>Attribute</th>
+			<th>Value</th>
+			<th>Count</th>
+		</tr>
+	</thead>
+
+	<tbody>
+		{% for attr, dict in values.items %}
+			{% for val, num in dict.items %}
+		<tr>
+			<td>{{attr}}</td>
+			<td>{{val}}</td>
+			<td>{{num}}</td>
+			{% endfor %}
+		{% endfor %}
+		</tr>
+	</tbody>
+
+</table>
+</body>
+</html>
