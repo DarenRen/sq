@@ -3,6 +3,9 @@ from django.shortcuts import render
 from .models import Sq
 from .forms import SqForm 
 from django.shortcuts import redirect
+from matplotlib import pylab
+from pylab import *
+import PIL, PIL.Image, StringIO
 
 def all_sq(request):
     sqs = Sq.objects.all()
@@ -40,4 +43,18 @@ def add_sq(request):
     return render(request, 'sightings/edit.html',context)
 
 def stats(request):
+    x = arrange(0, 2*pi, 0.01)
+    s = cos(x)**2
+    plot(x, s)
+    xlabel('xlabel(X)')
+    ylabel('ylabel(Y)')
+    title('Simple Graph!')
+    grid(True)
 
+    buffer = StringIO.StringIO()
+    canvas = pylab.get_current_fig_manager().canvas
+    canvas.draw()
+    pilImage = PIL.Image.fromstring("RGB", canvas.get_width_height(), canvas.tostring_rgb())
+    pilImage.save(buffer, "PNG")
+    pylab.close()
+    return HttpResponse(buffer.getvalue(), mimetype="image/png")
