@@ -58,4 +58,8 @@ def stats(request):
             'x':x,
             'y':y,
     }
-    return render(request,'sightings/stats.html',context) 
+    return render(request,'sightings/stats.html',context)
+
+#This view shows home page of all apps
+def home(request):
+    return render(request,'sightings/home.html')
