@@ -9,7 +9,7 @@ table, th, td {
 </head>
 <body>
 
-<table>
+<table border="1">
 	<thead>
 		<tr>
 			<th>Attribute</th>
@@ -22,9 +22,9 @@ table, th, td {
 		{% for attr, dict in values.items %}
 			{% for val, num in dict.items %}
 		<tr>
-			<td>{{attr}}</td>
-			<td>{{val}}</td>
-			<td>{{num}}</td>
+			<td style="text-align:center">{{attr}}</td>
+			<td style="text-align:center">{{val}}</td>
+			<td style="text-align:center">{{num}}</td>
 			{% endfor %}
 		{% endfor %}
 		</tr>
@@ -33,7 +33,7 @@ table, th, td {
 
 <p></p>
 
-<table>
+<table border="1">
 
 	<thead>
 		<tr>
@@ -45,16 +45,16 @@ table, th, td {
 	</thead>
 	<tbody>
 		<tr>
-			<td>Longtitude</td>
-			<td>{{x.avg_}}</td>
-			<td>{{x.max_}}</td>
-			<td>{{x.min_}}</td>
+			<td style="text-align:center">Longtitude</td>
+			<td style="text-align:center">{{x.avg_}}</td>
+			<td style="text-align:center">{{x.max_}}</td>
+			<td style="text-align:center">{{x.min_}}</td>
 		</tr>
 		<tr>
-			<td>Latitude</td>
-			<td>{{y.avg_}}</td>
-			<td>{{y.max_}}</td>
-			<td>{{y.min_}}</td>
+			<td style="text-align:center">Latitude</td>
+			<td style="text-align:center">{{y.avg_}}</td>
+			<td style="text-align:center">{{y.max_}}</td>
+			<td style="text-align:center">{{y.min_}}</td>
 		</tr>
 	</tbody>
 
