@@ -4,6 +4,7 @@ from .models import Sq
 from .forms import SqForm 
 from django.shortcuts import redirect
 from django.db.models import Count
+from django.db.models import Avg, Max, Min
 
 
 def all_sq(request):
@@ -42,13 +43,18 @@ def add_sq(request):
     return render(request, 'sightings/edit.html',context)
 
 def stats(request):
-    sqs = Sq.objects.all()
     attributes = ['Age','Primary_Fur_Color','Running','Chasing','Climbing','Eating','Foraging','Kuks','Quaas']
     values={i:{} for i in attributes}
     for item in values.keys():
         for each in Sq.objects.values(item).annotate(count=Count(item)):
             values[item][each[item]] = each['count']
+    x = Sq.objects.aggregate(avg_=Avg('Longitude'), max_=Max('Longitude'),min_= Min('Longitude'))
+    y = Sq.objects.aggregate(avg_=Avg('Latitude'), max_=Max('Latitude'),min_=Min('Latitude'))
     context ={
-        'values':values
-    }
+            'values':values,
+            'x':x,
+            'y':y
+            }
+
+
     return render(request,'sightings/stats.html',context) 

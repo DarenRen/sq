@@ -29,7 +29,36 @@ table, th, td {
 		{% endfor %}
 		</tr>
 	</tbody>
+</table>
+
+<p></p>
+
+<table>
+
+	<thead>
+		<tr>
+			<th>Attribute</th>
+			<th>Average</th>
+			<th>Max</th>
+			<th>Min</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>Longtitude</td>
+			<td>{{x.avg_}}</td>
+			<td>{{x.max_}}</td>
+			<td>{{x.min_}}</td>
+		</tr>
+		<tr>
+			<td>Latitude</td>
+			<td>{{y.avg_}}</td>
+			<td>{{y.max_}}</td>
+			<td>{{y.min_}}</td>
+		</tr>
+	</tbody>
 
 </table>
+
 </body>
 </html>
