@@ -1,6 +1,7 @@
 from django.core.management.base import BaseCommand
 import csv
 from sightings.models import Sq
+import datetime
 class Command(BaseCommand):
     def add_arguments(self, parser):
         parser.add_argument('csv_file')
@@ -12,6 +13,7 @@ class Command(BaseCommand):
         for item in data:
             if item['Age'] == '?':
                 item['Age'] = ''
+            item['Date'] = datetime.datetime.strptime(item['Date'], "%m%d%Y").date()
             s = Sq(
                 Longitude = item['X'],
                 Latitude = item['Y'],

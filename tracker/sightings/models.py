@@ -32,9 +32,8 @@ class Sq(models.Model):
         default = OTHER,
     )
     
-    Date = models.CharField(
-        max_length = 8,
-        help_text =_('month, day, and year (MMDDYYYY)'),
+    Date = models.DateField(
+        help_text =_('YYYY-MM-DD'),
     )
     
     ADULT = 'adult'
