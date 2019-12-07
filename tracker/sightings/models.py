@@ -82,6 +82,7 @@ class Sq(models.Model):
     
     Specific_Location = models.CharField(
         max_length = 100,
+        default = None,
         help_text = _('commentary on the squirrel location'),
     )
 
@@ -107,6 +108,7 @@ class Sq(models.Model):
 
     Other_Activities = models.CharField(
         max_length = 100,
+        default = None,
         help_text = _('describe squirrels other activities'),
     )
 
