@@ -10,13 +10,15 @@ class Command(BaseCommand):
             data = list(reader)
 
         for item in data:
+            if item['Age'] == '?':
+                item['Age'] = ''
             s = Sq(
                 Longitude = item['X'],
                 Latitude = item['Y'],
                 Unique_Squirrel_ID = item['Unique Squirrel ID'],
                 Shift = item['Shift'],
                 Date = item['Date'],
-                Age = item['Date'],
+                Age = item['Age'],
                 Primary_Fur_Color = item['Primary Fur Color'],
                 Location = item['Location'],
                 Specific_Location = item['Specific Location'],

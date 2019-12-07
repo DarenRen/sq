@@ -56,7 +56,5 @@ def stats(request):
             'x':x,
             'y':y,
             'age':age,
-            }
-
-
+    }
     return render(request,'sightings/stats.html',context) 
