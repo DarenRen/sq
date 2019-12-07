@@ -9,7 +9,7 @@ from django.db.models import Avg, Max, Min
 #This view shows the home page with links to add new squirrel sightings, update existing sightings, 
 #and see statistics of specific attributes
 def all_sq(request):
-    sqs = Sq.objects.all()
+    sqs = Sq.objects.order_by('-Date')
     context = {
         'sqs': sqs,
     }
@@ -57,9 +57,5 @@ def stats(request):
             'values':values,
             'x':x,
             'y':y,
-<<<<<<< HEAD
-=======
-            'age':age,
->>>>>>> 88baf97d6d475eec092aef0b2c63506331c8b7ed
     }
     return render(request,'sightings/stats.html',context) 
