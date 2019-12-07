@@ -57,5 +57,9 @@ def stats(request):
             'values':values,
             'x':x,
             'y':y,
+<<<<<<< HEAD
+=======
+            'age':age,
+>>>>>>> 88baf97d6d475eec092aef0b2c63506331c8b7ed
     }
     return render(request,'sightings/stats.html',context) 

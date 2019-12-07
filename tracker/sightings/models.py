@@ -1,6 +1,5 @@
 from django.db import models
 from django.utils.translation import gettext as _
-
 class Sq(models.Model):
     
     Longitude = models.FloatField(
@@ -47,7 +46,7 @@ class Sq(models.Model):
         (OTHER, ''),
     )
     Age = models.CharField(
-        max_length = 20,
+        max_length = 15,
         choices = AGE_CHOICES,
         default = OTHER,
     )
@@ -125,7 +124,7 @@ class Sq(models.Model):
     )
 
     Tail_Flags = models.BooleanField(
-        default = False,
+       default = False,
     )
 
     Tail_Twitches = models.BooleanField(
