@@ -16,6 +16,7 @@ class Sq(models.Model):
     Unique_Squirrel_ID = models.CharField(
         max_length = 100,
         help_text = _('identification tag for each squirrel'),
+        primary_key = True,
     )
     
     AM = 'am'
