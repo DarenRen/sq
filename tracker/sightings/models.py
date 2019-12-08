@@ -3,12 +3,14 @@ from django.utils.translation import gettext as _
 class Sq(models.Model):
     
     Longitude = models.FloatField(
-        default = None,
+        null = True,
+        blank = True,
         help_text = _('longitude coordinate'),
     )
     
     Latitude = models.FloatField(
-        default = None,
+        null = True,
+        blank = True,
         help_text = _('latitude coordinate'),
     )
     
@@ -27,12 +29,16 @@ class Sq(models.Model):
         (OTHER, ''),
     )
     Shift = models.CharField(
+        null = True,
+        blank = True,
         max_length = 20,
         choices = SHIFT_CHOICES,
         default = OTHER,
     )
     
     Date = models.DateField(
+        null = True,
+        blank = True,
         help_text =_('YYYY-MM-DD'),
     )
     
@@ -46,6 +52,8 @@ class Sq(models.Model):
     )
     Age = models.CharField(
         max_length = 15,
+        null = True,
+        blank = True,
         choices = AGE_CHOICES,
         default = OTHER,
     )
@@ -62,6 +70,8 @@ class Sq(models.Model):
     )
     Primary_Fur_Color = models.CharField(
         max_length = 20,
+        null = True,
+        blank = True,
         choices = PRICOLOR_CHOICES,
         default = OTHER,
     )
@@ -76,13 +86,16 @@ class Sq(models.Model):
     )
     Location = models.CharField(
         max_length = 20,
+        null = True,
+        blank = True,
         choices = LOCATION_CHOICES,
         default = OTHER,
     )
     
     Specific_Location = models.CharField(
         max_length = 100,
-        default = None,
+        blank = True,
+        null = True,
         help_text = _('commentary on the squirrel location'),
     )
 
@@ -108,7 +121,8 @@ class Sq(models.Model):
 
     Other_Activities = models.CharField(
         max_length = 100,
-        default = None,
+        null = True,
+        blank = True,
         help_text = _('describe squirrels other activities'),
     )
 
