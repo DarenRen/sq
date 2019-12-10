@@ -26,9 +26,9 @@ def edit_sq(request,Unique_Squirrel_ID):
     else:
         form = SqForm(instance = sq)
     context = {
-            'form': form,
+        'form': form,
     }
-    return render(request,f'sightings/edit.html',context)
+    return render(request, f'sightings/edit.html', context)
 
 #This view shows the add page 
 def add_sq(request):
@@ -39,27 +39,27 @@ def add_sq(request):
             return redirect('/sightings')
     else:
         form =SqForm()
-    context={
-            'form': form,
+    context = {
+        'form': form,
     }
-    return render(request, 'sightings/edit.html',context)
+    return render(request, 'sightings/edit.html', context)
 
 #This view shows statistics of different attributes
 def stats(request):
-    attributes = ['Age','Date','Primary_Fur_Color','Running','Chasing','Climbing','Eating','Foraging','Kuks','Quaas']
-    values={i:{} for i in attributes}
+    attributes = ['Age', 'Date', 'Primary_Fur_Color', 'Running', 'Chasing', 'Climbing', 'Eating', 'Foraging', 'Kuks', 'Quaas']
+    values = {i:{} for i in attributes}
     for item in values.keys():
-        for each in Sq.objects.values(item).annotate(count=Count(item)):
+        for each in Sq.objects.values(item).annotate(count = Count(item)):
             values[item][each[item]] = each['count']
-    x = Sq.objects.aggregate(avg_=Avg('Longitude'), max_=Max('Longitude'),min_= Min('Longitude'))
-    y = Sq.objects.aggregate(avg_=Avg('Latitude'), max_=Max('Latitude'),min_=Min('Latitude'))
-    context ={
-            'values':values,
-            'x':x,
-            'y':y,
+    x = Sq.objects.aggregate(avg_ = Avg('Longitude'), max_ = Max('Longitude'),min_ = Min('Longitude'))
+    y = Sq.objects.aggregate(avg_ = Avg('Latitude'), max_ = Max('Latitude'),min_ = Min('Latitude'))
+    context = {
+        'values':values,
+        'x':x,
+        'y':y,
     }
-    return render(request,'sightings/stats.html',context)
+    return render(request, 'sightings/stats.html', context)
 
 #This view shows home page of all apps
 def home(request):
-    return render(request,'sightings/home.html')
+    return render(request, 'sightings/home.html')
